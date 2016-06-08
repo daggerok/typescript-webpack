@@ -1,0 +1,10 @@
+language: node_js
+node_js: 6
+script:
+  - npm run wp:compile
+  - npm run wp:build
+after_script:
+  - true & cat *.log
+cache.directories:
+  - ./node_modules
+notifications.on_failure: never # always|change|never

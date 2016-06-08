@@ -1,0 +1,54 @@
+{
+  "name": "typescript-webpack",
+  "version": "1.0.0",
+  "description": "typescript webpack",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "npm i && npm run wp:dev",
+    "bs": "npm-run-all wp:compile start-in-parallel",
+    "start-in-parallel": "npm-run-all --parallel wp:watch bs-server",
+    "bs-server": "browser-sync start --config=./config/browser-sync.js",
+    "wp:dev": "webpack-dev-server --config ./config/webpack.js -w --hot",
+    "wp:build": "webpack --config ./config/webpack.js -p",
+    "wp:watch": "webpack --config ./config/webpack.js -w",
+    "wp:compile": "webpack --config ./config/webpack.js",
+    "tsc:watch": "tsc -w -p ./src",
+    "tsc:compile": "tsc -p ./src",
+    "postinstall": "npm-run-all typings:*",
+    "typings:rm": "rimraf typings*",
+    "typings:init": "typings init ./src",
+    "typings:install": "typings install --global --save dt~jquery"
+  },
+  "author": "Maksim Kostromin",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "html-webpack-plugin": "^2.19.0",
+    "http-proxy-middleware": "^0.15.2",
+    "npm-run-all": "^2.1.1",
+    "rimraf": "^2.5.2",
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggerok/typescript-webpack.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "webpack"
+  ],
+  "bugs": {
+    "url": "https://github.com/daggerok/typescript-webpack/issues"
+  },
+  "homepage": "https://github.com/daggerok/typescript-webpack#readme"
+}
